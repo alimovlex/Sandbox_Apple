@@ -2,7 +2,7 @@ import Foundation;
 import CoreFoundation;
 import CDispatch;
 
-enum days
+enum Days
 {
     case Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
 }
@@ -36,31 +36,26 @@ class Months: Weekdays
 func tutorial ()
 {
 
-
-    let pi = 3.14159, c = 2.0;
-
+    let pi = 3.14159, c = 2.0, string = String("Hello World!"); //the constants
+    var error501 = (501, "Not Implemented"); //The Tuple variable
+    var error403 = (403, "Forbidden"); //The Tuple variable
+    var error404 = (404, "Not Found"); //The Tuple variable
     var word: String, year: Int, wort:String;
-    var array = [Int](repeating: 4, count: 3);
-    var massiv: [Int] = [1,2,3,4,5];
+    var array = [Int](repeating: 4, count: 3); //an array of repeating integers
+    var massiv: [Int] = [1,2,3,4,5]; // an array of ints
     var names: Set<String> = ["David", "Joe", "Sean"];
     var namen: [String:String];
-    var days = Weekdays(), months = Months();
+    var days = Weekdays(), months = Months(), today = Days.Monday;//constructing objects
+    today = .Monday;
     word = "Year";
     wort = "New ";
     year = 2021;
     namen = ["David":"Jones", "Joe":"Silverman", "Sean":"Davis"];
 
-    print("Hello, world!\n", (wort),(word),days.summ(a: 2000, b: 21));
+    print((string), (wort)+(word),days.summ(a: 2000, b: 21));
     print("string word counts = \(word.count)\(wort.count)");
     massiv.removeLast();
     print(array, massiv);
-    if (year > 2020) {
-        print(wort + word);
-    }
-    else {
-        print("Error");
-    }
-
     for names in names.sorted()
     {
         print(names);
@@ -79,11 +74,55 @@ func tutorial ()
         print("Error");
         break;
     }
+
+    switch today
+    {
+    case .Monday:
+        print("Today's Monday");
+        //fallthrough; falling to another statement
+    case .Tuesday:
+        print("Today's Tuesday");
+    case .Wednesday:
+        print("Today's Wednesday");
+    case .Thursday:
+        print("Today's Thursday");
+    case .Friday:
+        print("Today's Friday");
+    case .Saturday:
+        print("Today's Saturday");
+    case .Sunday:
+        print("Today's Sunday");
+    default:
+        print("The day is incorrect");
+        break;
+}
+
+    let studname = { print("Welcome to Swift Closures") } //embedded function in tutorial()
+    studname();
+}
+
+struct rectangle {
+    var length: Double;
+    var breadth: Double;
+    init()
+    {
+        length = 6;
+        breadth = 12;
+    }
+}
+
+
+
+func sandbox()
+{
+    var area = rectangle();
+    print("area of rectangle is \(area.length*area.breadth)");
 }
 
 func main()
 {
-    tutorial();
+    //tutorial();
+    sandbox();
 }
 
 main();
