@@ -2,6 +2,15 @@ import Foundation;
 import CoreFoundation;
 import CDispatch;
 
+extension Int //the extension of the integer type
+{
+    var add: Int {return self + 10 }
+    var sub: Int { return self - 10 }
+    var mul: Int { return self * 10 }
+    var div: Int { return self / 10 }
+    var mod: Int { return self % 10}
+}
+
 enum Days
 {
     case Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
@@ -9,13 +18,13 @@ enum Days
 
 class Weekdays
 {
-    init() {
+  init() {
         print("Constructing");
     }
         var days: [String] = ["Monday", "Tuesday", "Wednesday", "Thursday",
                               "Friday", "Saturday", "Sunday"];
     var quantity:Int = 7;
-    subscript(index: Int) -> String
+    subscript(index: Int) -> String //the subscript to access the array of the weekdays
     {
         get
         {
@@ -26,8 +35,22 @@ class Weekdays
             self.days[index] = newValue;
         }
     }
-        func summ(a: Float, b: Float) -> Float {
-            return a + b;
+        func arithmetics(number:Int)
+        {
+            let addition = number.add;
+            print("Addition of 100 is \(addition)");
+
+            let subtraction = number.sub;
+            print("Subtraction of 100 is \(subtraction)");
+
+            let multiplication = number.mul;
+            print("Multiplication of 100 is \(multiplication)");
+
+            let division = number.div;
+            print("Division of 100 is \(division)");
+
+            let mod = number.mod;
+            print("The modulus division of 10 is \(mod)");
         }
     deinit {
     print("Destructing");
@@ -47,9 +70,6 @@ class Months: Weekdays
         }
     }
 
-    override func summ(a: Float, b: Float) -> Float {
-        return super.summ(a: pow(a, 2.0), b: pow(b, 2));
-    }
 }
 
 struct Today
@@ -77,7 +97,8 @@ func tutorial (entrance:String, exit:String) -> String
     namen.updateValue("Silberman", forKey: "Joe"); //Changing the dictionary
     namen.updateValue("Beckham", forKey: "David"); //Modifying the dictionary
     namen.updateValue("Hernandez", forKey: "Sean");//Editing the dictionary
-    print((string),"\n", (heute.wort)+(heute.word),days.summ(a: 2000, b: 21));
+    print((string),"\n", (heute.wort)+(heute.word)); //The string concatencation and the output
+    print(days.arithmetics(number: 2011)); //
     print("string word counts = \(heute.word.count) \(heute.wort.count)");
     massiv.removeLast();
     print(array, massiv);
@@ -143,7 +164,7 @@ func main()
     var demo: (String, String) -> String = tutorial;
     print(tutorial(entrance: "Learning ", exit: "Swift"));
     //tutorial();
-    //sandbox();
+    sandbox();
 }
 
 main();
