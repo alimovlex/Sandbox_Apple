@@ -176,6 +176,10 @@ func sandbox()
     var members = Set<String>(arrayLiteral: "Chicken", "Fish", "Meat");
     var membersTwo = Set<String>(arrayLiteral: "Chicken", "Fish", "Meat");
     var emptySet = Set<String>();
+    //the digit based sets
+    let evenDigits: Set = [0,2,4,6,8];
+    let oddDigits: Set = [1,3,5,7,9];
+    var differentDigits: Set = [3,4,7,8];
     //The ways of defining the dictionary
     var dictionary = ["one":"eins", "two":"zwei", "three":"drei"]; //first way
     Dictionary(dictionaryLiteral: (100, "hundred"), (200, "two hundred"), (300, "three hundred")); //second way
@@ -200,11 +204,11 @@ func sandbox()
     print("The text code: \(statusTuple.statusText) | Duplicating:\(statusTuple.1)");
     print("The connection with server: \(statusTuple.statusConnect) | Duplicating:\(statusTuple.2)");
     //the dictionary output
-    print("The dictionary section");
+    print("--------------------The dictionary section--------------------------");
     print(dictionary, dictionary["one"]);
     print(newDictionary);
     print(starDistanceDict);
-    //the array method outputs
+    //the array methods and its outputs
     repeatArray.append("Swift"); //the second way of array appension
     repeatArray.insert("Swift", at: 6);
     repeatArray.removeLast();
@@ -212,7 +216,7 @@ func sandbox()
     repeatArray.remove(at: 0);
     repeatArray.dropFirst();
     repeatArray.dropLast();
-    print("The repeatArray methods description:");
+    print("The repeatArray methods description: \(repeatArray)");
     print("contains:\(repeatArray.count) elements");
     print("is empty:\(repeatArray.isEmpty)");
     print("containing Swift:\(repeatArray.contains("Swift"))");
@@ -223,7 +227,31 @@ func sandbox()
     print("reversedArray\t\(mutableArray)");
     mutableArray.sort();
     print("sortedArray\t\(mutableArray)");
-
+    print("--------------------The dictionary section ending--------------------------");
+    print("--------------------The set section ---------------------------------------");
+    //the set methods and its outputs
+    dishes.insert("Fruits");
+    dishes.remove("Fruits");
+    print("The dishes methods description: \(dishes)");
+    print("contains:\(dishes.count) elements");
+    print("is empty:\(dishes.isEmpty)");
+    print("containing Water:\(dishes.contains("Water"))");
+    print("The digit methods in the sets:");
+    print("evenDigits: \(evenDigits)");
+    print("oddDigits: \(oddDigits)")
+    print("differentDigits: \(differentDigits)");
+    print("The intersection between differentDigits and oddDigits sets:");
+    print(differentDigits.intersection(oddDigits));
+    print("The symmetric difference between differentDigits and oddDigits sets:");
+    print(differentDigits.symmetricDifference(oddDigits));
+    print("The union between evenDigits and oddDigits sets:");
+    print(evenDigits.union(oddDigits));
+    print("The subtraction between differentDigits and oddDigits sets:");
+    print(differentDigits.subtracting(evenDigits));
+    print("Are there any uncommon members between evenDigits and oddDigits sets?");
+    print(evenDigits.isDisjoint(with: oddDigits));
+    print("Sorted sets:");
+    print(evenDigits.sorted(), oddDigits.sorted(), differentDigits.sorted());
 }
 
 func main()
