@@ -81,7 +81,6 @@ struct Today
 
 func tutorial (entrance:String, exit:String) -> String
 {
-
     let pi = 3.14159, c = 2.0, string = String("Hello World!"); //the constants
     var error501 = (501, "Not Implemented"); //The Tuple variable
     var error403 = (403, "Forbidden"); //The Tuple variable
@@ -156,15 +155,87 @@ func tutorial (entrance:String, exit:String) -> String
 
 func sandbox()
 {
+    var str = ["Hello", "world"];
+    //the cortege block definition
+    var tuple1 = (200, "In work", true);
+    var tuple2 = (true, "At Work", 200);
+    let statusTuple = (statusCode:200, statusText:"In work", statusConnect:true);
+    //three ways of defining the arrays
+    let alphabetArray = ["a", "b", "c"]; //first method
+    let newalphabetArray = Array(arrayLiteral: 2,4,8,1); //second method
+    let lineArray = Array(0...9); //third method
+    var repeatArray = Array(repeating: "Swift", count: 5);
+    var mutableArray = [2,4,8,1]; //the default changeable array
+    var emptyArray: [String] = []; //first way
+    var anotherEmptyArray = [String](); //second way
+    str+=repeatArray; //the array appension
+    var matrix = [[1,2,3],[4,5,6],[7,6,8]]; //the array-matrix
+    //the set definition ways
+    var dishes: Set<String> = ["Bread", "Vegetables", "Beef", "Water"];
+    var dishesTwo: Set = ["Bread", "Vegetables", "Beef", "Water"];
+    var members = Set<String>(arrayLiteral: "Chicken", "Fish", "Meat");
+    var membersTwo = Set<String>(arrayLiteral: "Chicken", "Fish", "Meat");
+    var emptySet = Set<String>();
+    //The ways of defining the dictionary
+    var dictionary = ["one":"eins", "two":"zwei", "three":"drei"]; //first way
+    Dictionary(dictionaryLiteral: (100, "hundred"), (200, "two hundred"), (300, "three hundred")); //second way
+    let baseCollection = [(2,5), (3,6), (1,4)]; //the cortege's collection for dictionary
+    var newDictionary = Dictionary(uniqueKeysWithValues: baseCollection); //dictionary is based on cortege's baseCollection
+    var emptyDictionary: [String:Int] = [:];
+    var anotherEmptyDictionary = Dictionary<String,Int>();
+    //aggregating the dictionary from two arrays
+    let nearestStarNames = ["Proxima Centauri", "Alpha Centauri A", "Alpha Centauri B"];
+    let nearestStarDistances = [4.24, 4.37, 4.37];
+    let starDistanceDict = Dictionary(uniqueKeysWithValues: zip(nearestStarNames, nearestStarDistances));
+    newDictionary.removeValue(forKey: 1);//erasing the value from newDictionary
+    //the cortege block use
+    print("Hello, playground\n\(str)");
+    print("""
+                  \(matrix[0])
+                  \(matrix[1])
+                  \(matrix[2])
+          """); //the multiline output
+    print(type(of:tuple1) == type(of:tuple2)); //the comparison of two corteges
+    print("The response code: \(statusTuple.statusCode) | Duplicating:\(statusTuple.0)");
+    print("The text code: \(statusTuple.statusText) | Duplicating:\(statusTuple.1)");
+    print("The connection with server: \(statusTuple.statusConnect) | Duplicating:\(statusTuple.2)");
+    //the dictionary output
+    print("The dictionary section");
+    print(dictionary, dictionary["one"]);
+    print(newDictionary);
+    print(starDistanceDict);
+    //the array method outputs
+    repeatArray.append("Swift"); //the second way of array appension
+    repeatArray.insert("Swift", at: 6);
+    repeatArray.removeLast();
+    repeatArray.removeFirst();
+    repeatArray.remove(at: 0);
+    repeatArray.dropFirst();
+    repeatArray.dropLast();
+    print("The repeatArray methods description:");
+    print("contains:\(repeatArray.count) elements");
+    print("is empty:\(repeatArray.isEmpty)");
+    print("containing Swift:\(repeatArray.contains("Swift"))");
+    print("The digit methods in the mutableArray \(mutableArray)");
+    print("min = \(mutableArray.min())");
+    print("max = \(mutableArray.max())");
+    mutableArray.reverse();
+    print("reversedArray\t\(mutableArray)");
+    mutableArray.sort();
+    print("sortedArray\t\(mutableArray)");
 
 }
 
 func main()
 {
+    print("-------------------The tutorial function----------------------------");
     var demo: (String, String) -> String = tutorial;
     print(tutorial(entrance: "Learning ", exit: "Swift"));
+    print("-------------------The tutorial function ending----------------------------");
     //tutorial();
+    print("-------------------The sandbox function----------------------------");
     sandbox();
+    print("-------------------The tutorial function ending----------------------------");
 }
 
 main();
