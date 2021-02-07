@@ -12,12 +12,14 @@ class DataStruct
     let dictionaryInitString = "---------------The dictionary section--------------------------";
     let arrayInitString = "---------------The array section--------------------------";
     let cortegeInitString = "---------------The cortege section--------------------------";
-    let setInitString = "---------------The dictionary section--------------------------";
+    let setInitString = "---------------The set section--------------------------";
+    let stringInitString = "---------------The string section--------------------------";
     //ending strings
     let dictionaryEndingString = "------The dictionary section ending--------------------------";
     let arrayEndingString = "------The array section ending--------------------------";
     let cortegeEndingString = "------The cortege section ending--------------------------";
     let setEndingString = "------The set section ending--------------------------";
+    let stringEndingString = "------The string section ending--------------------------";
 }
 
 class Cortege: DataStruct
@@ -45,6 +47,7 @@ class Arrays: DataStruct
     let lineArray = Array(0...9); //third method
     var emptyArray: [String] = []; //first way
     var anotherEmptyArray = [String](); //second way
+    var result = 0;
     func demo(matrix:Array<Any>, immutableArray:Array<Int>)
     {
         print(arrayInitString);
@@ -53,6 +56,18 @@ class Arrays: DataStruct
                       \(matrix[1])
                       \(matrix[2])
               """); //the multiline output
+        //the enumerated alphabetArray
+        print("alphabetArray:");
+        for (index, letter) in alphabetArray.enumerated()
+        {
+            print("\(index). letter: \(letter)");
+        }
+        //the stepping in the lineArray
+        print("lineArray:");
+        for i in stride(from: lineArray[0], through: lineArray[9], by: 2) where i%2==0
+        {
+            print("lineArray even numbers stepping 2 in the array: \(i)");
+        }
         //the array methods and its outputs
         repeatArray.append("Swift"); //the second way of array appension
         repeatArray.insert("Swift", at: 6);
@@ -68,6 +83,11 @@ class Arrays: DataStruct
         print("The digit methods in the immutableArray \(immutableArray)");
         print("min = \(immutableArray.min())");
         print("max = \(immutableArray.max())");
+        for number in immutableArray
+        {
+            result+=number;
+        }
+        print("summation = \(result)");
         print("The alphabet array: \(alphabetArray)");
         alphabetArray.reverse();
         print("reversedArray\t\(alphabetArray)");
@@ -148,6 +168,28 @@ class Dictionaries: DataStruct
     }
 }
 
+class Strings: DataStruct
+{
+
+    func demo(str:String)
+    {
+        var index = str.startIndex, indexLastChar = str.endIndex;
+        var lastChar = str.index(before: indexLastChar);
+        var secondCharIndex = str.index(after: str.startIndex);
+        var thirdCharIndex = str.index(str.startIndex, offsetBy: 2);
+        print(stringInitString);
+        //the string methods and its output
+        print("The String: \(str)");
+        print("contains:\(str.count) elements and \(str.unicodeScalars.count) scalars");
+        print("is empty:\(str.isEmpty)");
+        print("First letter:\(str[index])");
+        print("second symbol:\(str[secondCharIndex])");
+        print("third symbol:\(str[thirdCharIndex])");
+        print("ending symbol:\(str[lastChar])");
+        print(stringEndingString);
+    }
+}
+
 func CortegeDemo()
 {
     var obj = Cortege();
@@ -174,6 +216,13 @@ func SetDemo()
 func DictionaryDemo()
 {
     var obj = Dictionaries();
-    var dictionary = ["one":"eins", "two":"zwei", "three":"drei"]; 
+    var dictionary = ["one":"eins", "two":"zwei", "three":"drei"];
     obj.demo(dictionary: dictionary);
+}
+
+func StringDemo()
+{
+    var obj = Strings();
+    var str = "Hello World!";
+    obj.demo(str: str);
 }
