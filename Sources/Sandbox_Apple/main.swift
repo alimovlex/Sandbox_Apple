@@ -9,6 +9,7 @@ func sandbox() -> Int
     SetDemo();
     DictionaryDemo();
     StringDemo();
+    OptionalsDemo();
     return 0;
 }
 

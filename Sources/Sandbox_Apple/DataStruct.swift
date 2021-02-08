@@ -14,12 +14,14 @@ class DataStruct
     let cortegeInitString = "---------------The cortege section--------------------------";
     let setInitString = "---------------The set section--------------------------";
     let stringInitString = "---------------The string section--------------------------";
+    let optionalsInitString = "---------------The optionals section--------------------------";
     //ending strings
     let dictionaryEndingString = "------The dictionary section ending--------------------------";
     let arrayEndingString = "------The array section ending--------------------------";
     let cortegeEndingString = "------The cortege section ending--------------------------";
     let setEndingString = "------The set section ending--------------------------";
     let stringEndingString = "------The string section ending--------------------------";
+    let optionalsEndingString = "------The optionals section ending--------------------------";
 }
 
 class Cortege: DataStruct
@@ -173,11 +175,11 @@ class Strings: DataStruct
 
     func demo(str:String)
     {
+        print(stringInitString);
         var index = str.startIndex, indexLastChar = str.endIndex;
         var lastChar = str.index(before: indexLastChar);
         var secondCharIndex = str.index(after: str.startIndex);
         var thirdCharIndex = str.index(str.startIndex, offsetBy: 2);
-        print(stringInitString);
         //the string methods and its output
         print("The String: \(str)");
         print("contains:\(str.count) elements and \(str.unicodeScalars.count) scalars");
@@ -187,6 +189,33 @@ class Strings: DataStruct
         print("third symbol:\(str[thirdCharIndex])");
         print("ending symbol:\(str[lastChar])");
         print(stringEndingString);
+    }
+}
+
+class Optionals:DataStruct
+{
+    //multiple ways of defining optionals
+    var optionalChar: Optional<Character> = "a"; //first method
+    var xCoordinate: Int? = 12, yCoordinate: Int = 12; //the second method
+    var optionalVar = Optional ("Hello "), str:String = "World!"; //the third method
+    //xCoordinate+yCoordinate = error; optionals aren't calculated between basic types!!!
+    //optionalVar+str = error; optionals aren't calculated between basic types!!!
+    //var terminator: Int?, suicide: Int! = ERROR;NEVER DECLARE EMPTY OPTIONALS = RUNTIME CRASH
+    func demo(tuple: (code: Int, message: String)?)
+    {
+        print(optionalsInitString);
+        var distance = xCoordinate! + yCoordinate; //force unwrapping of the optional variable
+        var testString = optionalVar! + str; //force unwrapping of the optional variable
+        if xCoordinate != nil && optionalVar != nil //Optionals comparison
+        {
+            print("Output of the calculation of unwrapped optionals and basic variables:");
+            print("The distance is: \(distance) | \(testString)");
+        }
+        if let string = optionalVar
+        {
+            print("Using \(optionalVar) binding with variable string = \(string)");
+        }
+        print(optionalsEndingString);
     }
 }
 
@@ -225,4 +254,10 @@ func StringDemo()
     var obj = Strings();
     var str = "Hello World!";
     obj.demo(str: str);
+}
+
+func OptionalsDemo()
+{
+    var obj = Optionals();
+    obj.demo(tuple:(404,"Page not found") );
 }
