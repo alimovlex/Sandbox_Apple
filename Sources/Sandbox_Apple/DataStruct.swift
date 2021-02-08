@@ -29,7 +29,7 @@ class Cortege: DataStruct
     //the cortege block definition
     let statusTuple = (statusCode:200, statusText:"In work", statusConnect:true);
     //the cortege block use
-    func demo(tuple1:(Int, String, Bool), tuple2:(Int, String, Bool))
+    func demo(tuple1:(a:Int, b:String, c:Bool), tuple2:(x:Int, y:String, z:Bool)) -> (_ :String, _ : String)
     {
         print(cortegeInitString);
         print("Are two corteges equal? \(type(of:tuple1) == type(of:tuple2))"); //the comparison of two corteges
@@ -37,7 +37,9 @@ class Cortege: DataStruct
         print("The text code: \(statusTuple.statusText) | Duplicating:\(statusTuple.1)");
         print("The connection with server: \(statusTuple.statusConnect) | Duplicating:\(statusTuple.2)");
         print(cortegeEndingString);
+        return (tuple1.b, tuple2.y); //the cortege return
     }
+
 }
 
 class Arrays: DataStruct
@@ -50,7 +52,7 @@ class Arrays: DataStruct
     var emptyArray: [String] = []; //first way
     var anotherEmptyArray = [String](); //second way
     var result = 0;
-    func demo(matrix:Array<Any>, immutableArray:Array<Int>)
+    func demo(matrix:Array<Any>, immutableArray:Array<Int>) -> ([String], [Int])
     {
         print(arrayInitString);
         print("""
@@ -96,6 +98,7 @@ class Arrays: DataStruct
         alphabetArray.sort();
         print("sortedArray\t\(alphabetArray)");
         print(arrayEndingString);
+        return (repeatArray, immutableArray); //the cortege return
     }
 }
 
@@ -219,21 +222,21 @@ class Optionals:DataStruct
     }
 }
 
-func CortegeDemo()
+func cortegeDemo()
 {
     var obj = Cortege();
-    obj.demo(tuple1: (200, "In work", true), tuple2: (200, "At Work", true));
+    print(obj.demo(tuple1: (200, "Cortege", true), tuple2: (200, "Destroys", true)));
 }
 
-func ArrayDemo()
+func arrayDemo()
 {
     var obj = Arrays();
     var matrix = [[1,2,3],[4,5,6],[7,6,8]]; //the array-matrix
     var immutableArray = [2,4,8,1]; //the default changeable array
-    obj.demo(matrix: matrix, immutableArray: immutableArray);
+    print(obj.demo(matrix: matrix, immutableArray: immutableArray));
 }
 
-func SetDemo()
+func setDemo()
 {
     var obj = Sets();
     //the digit based sets
@@ -242,21 +245,21 @@ func SetDemo()
     obj.demo(evenDigits: evenDigits, oddDigits: oddDigits);
 }
 
-func DictionaryDemo()
+func dictionaryDemo()
 {
     var obj = Dictionaries();
     var dictionary = ["one":"eins", "two":"zwei", "three":"drei"];
     obj.demo(dictionary: dictionary);
 }
 
-func StringDemo()
+func stringDemo()
 {
     var obj = Strings();
     var str = "Hello World!";
     obj.demo(str: str);
 }
 
-func OptionalsDemo()
+func optionalsDemo()
 {
     var obj = Optionals();
     obj.demo(tuple:(404,"Page not found") );

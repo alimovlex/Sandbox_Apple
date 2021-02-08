@@ -4,31 +4,28 @@ import CDispatch;
 
 func sandbox() -> Int
 {
-    CortegeDemo();
-    ArrayDemo();
-    SetDemo();
-    DictionaryDemo();
-    StringDemo();
-    OptionalsDemo();
+    cortegeDemo();
+    arrayDemo();
+    setDemo();
+    dictionaryDemo();
+    stringDemo();
+    optionalsDemo();
     return 0;
 }
 
-func dragons(dragonChars:(color:String, mass:Int), dragonsCount:Int)
+func swap(_ a:inout Int, _ b:inout Int)
 {
-    switch (dragonChars) {
-    case ("green", 0..<2): print("Into the first cage");
-    case ("red", 0..<2): print("Into the second cage");
-    case ("green", 2...) where dragonsCount < 5, ("red", 2...) where dragonsCount < 5: 
-        print("Into the third cage");
-    default:
-        print("Incorrect data provided");
-        break;
-    }
+    let tmp = a;
+    a = b;
+    b = tmp;
 }
 
 func main()
 {
-    //dragons(dragonChars: ("red", 2), dragonsCount: 3);
+    var a = 2, b = 3;
+    print("Before swap: a = \(a) b = \(b)");
+    swap(&a, &b); //The C/C++ function way of calling a function
+    print("After swap: a = \(a) b = \(b)");
     print("-------------------The sandbox function----------------------------");
     assert(sandbox()==0, "The program has been finished flawlessly!"); //function assertion
     //sandbox();
