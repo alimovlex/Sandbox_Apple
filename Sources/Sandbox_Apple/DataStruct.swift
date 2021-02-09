@@ -45,7 +45,7 @@ class Cortege: DataStruct
 class Arrays: DataStruct
 {
     //three ways of defining the arrays
-    var alphabetArray = ["a", "b", "c"]; //first method
+    var alphabetArray = ["c", "b", "a"]; //first method
     let newalphabetArray = Array(arrayLiteral: 2,4,8,1); //second method
     var repeatArray = Array(repeating: "Swift", count: 5);
     let lineArray = Array(0...9); //third method
@@ -60,18 +60,20 @@ class Arrays: DataStruct
                       \(matrix[1])
                       \(matrix[2])
               """); //the multiline output
+        alphabetArray.sort(by: {$0<$1}); //using closures to sort the array
+        print("sorted alphabetArray: \(alphabetArray)"); 
         //the enumerated alphabetArray
-        print("alphabetArray:");
         for (index, letter) in alphabetArray.enumerated()
         {
             print("\(index). letter: \(letter)");
         }
         //the stepping in the lineArray
-        print("lineArray:");
+        print("lineArray: \(lineArray) | squared: \(lineArray.map{$0*$0})"); //using closures
         for i in stride(from: lineArray[0], through: lineArray[9], by: 2) where i%2==0
         {
             print("lineArray even numbers stepping 2 in the array: \(i)");
         }
+        print("lineArray even numbers stepping 2 using closures: \(lineArray.filter{$0%2==0})");
         //the array methods and its outputs
         repeatArray.append("Swift"); //the second way of array appension
         repeatArray.insert("Swift", at: 6);
@@ -91,7 +93,7 @@ class Arrays: DataStruct
         {
             result+=number;
         }
-        print("summation = \(result)");
+        print("summation = \(result) | using closures: \(immutableArray.reduce(0, +))");
         print("The alphabet array: \(alphabetArray)");
         alphabetArray.reverse();
         print("reversedArray\t\(alphabetArray)");
@@ -233,7 +235,16 @@ func arrayDemo()
     var obj = Arrays();
     var matrix = [[1,2,3],[4,5,6],[7,6,8]]; //the array-matrix
     var immutableArray = [2,4,8,1]; //the default changeable array
+    var lineArray = Array(0...3);
+    var lineArrayMapped = lineArray.map{Array(repeating: $0, count: $0)};
+    let arraySummDemo : () -> [Int] = //using closures Embedded functions to hook local vars
+            {
+                [immutableArray, lineArray] in
+                return immutableArray + lineArray;
+            }
     print(obj.demo(matrix: matrix, immutableArray: immutableArray));
+    print("The array summation demo = \(arraySummDemo()), lineArrayMapped = \(lineArrayMapped)");
+
 }
 
 func setDemo()

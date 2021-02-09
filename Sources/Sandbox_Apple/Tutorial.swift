@@ -80,7 +80,7 @@ struct Today
     var year: Int;
 }
 
-func tutorial (entrance:String, exit:String) -> String
+func tutorial ()
 {
     let pi = 3.14159, c = 2.0, string = String("Hello World!"); //the constants
     var error501 = (501, "Not Implemented"); //The Tuple variable
@@ -150,5 +150,4 @@ func tutorial (entrance:String, exit:String) -> String
 
     let studname = { print("Welcome to Swift Closures") } //embedded function in tutorial()
     studname();
-    return entrance+exit;
 }
