@@ -69,6 +69,7 @@ class Arrays: DataStruct
         }
         //the stepping in the lineArray
         print("lineArray: \(lineArray) | squared: \(lineArray.map{$0*$0})"); //using closures
+        // i is the associated variable which wasn't previously declared
         for i in stride(from: lineArray[0], through: lineArray[9], by: 2) where i%2==0
         {
             print("lineArray even numbers stepping 2 in the array: \(i)");
@@ -89,7 +90,7 @@ class Arrays: DataStruct
         print("The digit methods in the immutableArray \(immutableArray)");
         print("min = \(immutableArray.min())");
         print("max = \(immutableArray.max())");
-        for number in immutableArray
+        for number in immutableArray // number is the associated variable which wasn't previously declared
         {
             result+=number;
         }
@@ -236,6 +237,7 @@ func arrayDemo()
     var matrix = [[1,2,3],[4,5,6],[7,6,8]]; //the array-matrix
     var immutableArray = [2,4,8,1]; //the default changeable array
     var lineArray = Array(0...3);
+    var lazyArray = lineArray.lazy.map{$0 + 1}.filter{$0 % 2 == 0}; //the lazy array
     var lineArrayMapped = lineArray.map{Array(repeating: $0, count: $0)};
     let arraySummDemo : () -> [Int] = //using closures Embedded functions to hook local vars
             {
@@ -244,6 +246,7 @@ func arrayDemo()
             }
     print(obj.demo(matrix: matrix, immutableArray: immutableArray));
     print("The array summation demo = \(arraySummDemo()), lineArrayMapped = \(lineArrayMapped)");
+    print("The lazyArray: \(Array(lazyArray))");
 
 }
 
