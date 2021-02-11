@@ -98,7 +98,7 @@ func tutorial ()
     namen.updateValue("Beckham", forKey: "David"); //Modifying the dictionary
     namen.updateValue("Hernandez", forKey: "Sean");//Editing the dictionary
     print((string),"\n", (heute.wort)+(heute.word)); //The string concatencation and the output
-    print(days.arithmetics(number: 2011)); //
+    days.arithmetics(number: 2011); //printing integer arithmetical methods
     print("string word counts = \(heute.word.count) \(heute.wort.count)");
     massiv.removeLast();
     print(array, massiv);

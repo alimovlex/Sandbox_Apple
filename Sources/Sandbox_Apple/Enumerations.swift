@@ -6,13 +6,13 @@ import Foundation
 
 enum Smile: String //declaring associated type with enumeration (raw value type)
 {
-    //rav value of type String
+    //raw value of type String
     case joy = ":)";
     case laugh = ":D";
     case sorrow = ":(";
     case hello = "hello";
     //calculated property of enumeration
-    var greeting: String //var mandatory because let will cause an error
+    var greeting: String //var is mandatory because let will cause an error
     {
         return self.rawValue;
     }

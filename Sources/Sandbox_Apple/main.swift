@@ -4,7 +4,7 @@ import CDispatch;
 
 enum sandbox: String //raw value type
 {
-    case start = "The dataStructDemo function initialization"; //rav value
+    case start = "The dataStructDemo function initialization"; //raw value
     func dataStructDemo() -> Int {
         cortegeDemo();
         arrayDemo();
@@ -23,6 +23,7 @@ enum objects: String
     func objectsDemo() -> Int
     {
         enumDemo();
+        structDemo();
         return 0;
     }
     case finish = "The objectsDemo function finishing";
@@ -42,13 +43,13 @@ func swap(_ a:inout Int, _ b:inout Int)
 
 func main()
 {
-    print("Please enter 2 variables to swap")
-   // var a = readLine();
-    //var b = readLine();
-   // print("Before swap: a = \(a) b = \(b)");
-    //swap(&a, &b); //The C/C++ function way of calling a function
-    //print("After swap: a = \(a) b = \(b)");
-    //print("a + b = \(Int(a!)! + Int(b!)!)");
+    print("The 2 variables to swap")
+    var a = Int.random(in: 0...100); //random value
+    var b = Int.random(in: 0...100); //random value
+    print("Before swap: a = \(a) b = \(b)");
+    swap(&a, &b); //The C/C++ function way of calling a function
+    print("After swap: a = \(a) b = \(b)");
+    print("a + b = \(a + b)");
     print("-------------------\(sandbox.start.rawValue)----------------------------");
     assert(sandbox.start.dataStructDemo()==0, "The program has finished flawlessly!"); //function assertion
     print("-------------------\(sandbox.finish.rawValue)----------------------------");

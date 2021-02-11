@@ -6,43 +6,43 @@ import Foundation
 import CoreFoundation;
 import CDispatch;
 
-class DataStruct
+enum DataStruct: String //declaring associated type with enumeration (raw value type)
 {
-    //initialization strings
-    let dictionaryInitString = "---------------The dictionary section--------------------------";
-    let arrayInitString = "---------------The array section--------------------------";
-    let cortegeInitString = "---------------The cortege section--------------------------";
-    let setInitString = "---------------The set section--------------------------";
-    let stringInitString = "---------------The string section--------------------------";
-    let optionalsInitString = "---------------The optionals section--------------------------";
+    //initialization strings connected to the raw value of enumeration
+    case dictionaryInitString = "---------------The dictionary section--------------------------";
+    case arrayInitString = "---------------The array section--------------------------";
+    case cortegeInitString = "---------------The cortege section--------------------------";
+    case setInitString = "---------------The set section--------------------------";
+    case stringInitString = "---------------The string section--------------------------";
+    case optionalsInitString = "---------------The optionals section--------------------------";
     //ending strings
-    let dictionaryEndingString = "------The dictionary section ending--------------------------";
-    let arrayEndingString = "------The array section ending--------------------------";
-    let cortegeEndingString = "------The cortege section ending--------------------------";
-    let setEndingString = "------The set section ending--------------------------";
-    let stringEndingString = "------The string section ending--------------------------";
-    let optionalsEndingString = "------The optionals section ending--------------------------";
+    case dictionaryEndingString = "------The dictionary section ending--------------------------";
+    case arrayEndingString = "------The array section ending--------------------------";
+    case cortegeEndingString = "------The cortege section ending--------------------------";
+    case setEndingString = "------The set section ending--------------------------";
+    case stringEndingString = "------The string section ending--------------------------";
+    case optionalsEndingString = "------The optionals section ending--------------------------";
 }
 
-class Cortege: DataStruct
+class Cortege
 {
     //the cortege block definition
     let statusTuple = (statusCode:200, statusText:"In work", statusConnect:true);
     //the cortege block use
     func demo(tuple1:(a:Int, b:String, c:Bool), tuple2:(x:Int, y:String, z:Bool)) -> (_ :String, _ : String)
     {
-        print(cortegeInitString);
+        print(DataStruct.cortegeInitString.rawValue);
         print("Are two corteges equal? \(type(of:tuple1) == type(of:tuple2))"); //the comparison of two corteges
         print("The response code: \(statusTuple.statusCode) | Duplicating:\(statusTuple.0)");
         print("The text code: \(statusTuple.statusText) | Duplicating:\(statusTuple.1)");
         print("The connection with server: \(statusTuple.statusConnect) | Duplicating:\(statusTuple.2)");
-        print(cortegeEndingString);
+        print(DataStruct.cortegeEndingString.rawValue);
         return (tuple1.b, tuple2.y); //the cortege return
     }
 
 }
 
-class Arrays: DataStruct
+class Arrays
 {
     //three ways of defining the arrays
     var alphabetArray = ["c", "b", "a"]; //first method
@@ -54,7 +54,7 @@ class Arrays: DataStruct
     var result = 0;
     func demo(matrix:Array<Any>, immutableArray:Array<Int>) -> ([String], [Int])
     {
-        print(arrayInitString);
+        print(DataStruct.arrayInitString.rawValue);
         print("""
                       \(matrix[0])
                       \(matrix[1])
@@ -88,8 +88,8 @@ class Arrays: DataStruct
         print("is empty:\(repeatArray.isEmpty)");
         print("containing Swift:\(repeatArray.contains("Swift"))");
         print("The digit methods in the immutableArray \(immutableArray)");
-        print("min = \(immutableArray.min())");
-        print("max = \(immutableArray.max())");
+        print("min = \(immutableArray.min()!)");
+        print("max = \(immutableArray.max()!)");
         for number in immutableArray // number is the associated variable which wasn't previously declared
         {
             result+=number;
@@ -100,12 +100,12 @@ class Arrays: DataStruct
         print("reversedArray\t\(alphabetArray)");
         alphabetArray.sort();
         print("sortedArray\t\(alphabetArray)");
-        print(arrayEndingString);
+        print(DataStruct.arrayEndingString.rawValue);
         return (repeatArray, immutableArray); //the cortege return
     }
 }
 
-class Sets: DataStruct
+class Sets
 {
     //the set definition ways
     var dishes: Set<String> = ["Bread", "Vegetables", "Beef", "Water"];
@@ -116,7 +116,7 @@ class Sets: DataStruct
     var differentDigits: Set = [3,4,7,8];
     func demo(evenDigits:Set<Int>, oddDigits:Set<Int>)
     {
-        print(setInitString);
+        print(DataStruct.setInitString.rawValue);
         //the set methods and its outputs
         dishes.insert("Fruits");
         dishes.remove("Fruits");
@@ -140,11 +140,11 @@ class Sets: DataStruct
         print(evenDigits.isDisjoint(with: oddDigits));
         print("Sorted sets:");
         print(evenDigits.sorted(), oddDigits.sorted(), differentDigits.sorted());
-        print(setEndingString);
+        print(DataStruct.setEndingString.rawValue);
     }
 }
 
-class Dictionaries: DataStruct
+class Dictionaries
 {
 
     var emptyDictionary: [String:Int] = [:];
@@ -152,7 +152,7 @@ class Dictionaries: DataStruct
 
     func demo(dictionary:Dictionary<String, String>)
     {
-        print(dictionaryInitString);
+        print(DataStruct.dictionaryInitString.rawValue);
         //The ways of defining the dictionary
         //var dictionary = ["one":"eins", "two":"zwei", "three":"drei"]; first way
         Dictionary(dictionaryLiteral: (100, "hundred"), (200, "two hundred"), (300, "three hundred")); //second way
@@ -172,16 +172,16 @@ class Dictionaries: DataStruct
         print("is empty:\(starDistanceDict.isEmpty)");
         print("All starDistanceDict keys: \(starDistanceDict.keys)");
         print("All starDistanceDict values: \(starDistanceDict.values)");
-        print(dictionaryEndingString);
+        print(DataStruct.dictionaryEndingString.rawValue);
     }
 }
 
-class Strings: DataStruct
+class Strings
 {
 
     func demo(str:String)
     {
-        print(stringInitString);
+        print(DataStruct.stringInitString.rawValue);
         var index = str.startIndex, indexLastChar = str.endIndex;
         var lastChar = str.index(before: indexLastChar);
         var secondCharIndex = str.index(after: str.startIndex);
@@ -194,11 +194,11 @@ class Strings: DataStruct
         print("second symbol:\(str[secondCharIndex])");
         print("third symbol:\(str[thirdCharIndex])");
         print("ending symbol:\(str[lastChar])");
-        print(stringEndingString);
+        print(DataStruct.stringEndingString.rawValue);
     }
 }
 
-class Optionals:DataStruct
+class Optionals
 {
     //multiple ways of defining optionals
     var optionalChar: Optional<Character> = "a"; //first method
@@ -209,7 +209,7 @@ class Optionals:DataStruct
     //var terminator: Int?, suicide: Int! = ERROR;NEVER DECLARE EMPTY OPTIONALS = RUNTIME CRASH
     func demo(tuple: (code: Int, message: String)?)
     {
-        print(optionalsInitString);
+        print(DataStruct.optionalsInitString.rawValue);
         var distance = xCoordinate! + yCoordinate; //force unwrapping of the optional variable
         var testString = optionalVar! + str; //force unwrapping of the optional variable
         if xCoordinate != nil && optionalVar != nil //Optionals comparison
@@ -221,7 +221,7 @@ class Optionals:DataStruct
         {
             print("Using \(optionalVar) binding with variable string = \(string)");
         }
-        print(optionalsEndingString);
+        print(DataStruct.optionalsEndingString.rawValue);
     }
 }
 
@@ -235,7 +235,7 @@ func arrayDemo()
 {
     var obj = Arrays();
     var matrix = [[1,2,3],[4,5,6],[7,6,8]]; //the array-matrix
-    var immutableArray = [2,4,8,1]; //the default changeable array
+    var immutableArray = [Int.random(in: 0...10),Int.random(in: 0...10),Int.random(in: 0...10),Int.random(in: 0...10)]; //the default changeable array
     var lineArray = Array(0...3);
     var lazyArray = lineArray.lazy.map{$0 + 1}.filter{$0 % 2 == 0}; //the lazy array
     var lineArrayMapped = lineArray.map{Array(repeating: $0, count: $0)};
