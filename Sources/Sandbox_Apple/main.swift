@@ -24,6 +24,7 @@ enum objects: String
     {
         enumDemo();
         structDemo();
+        classDemo();
         return 0;
     }
     case finish = "The objectsDemo function finishing";
