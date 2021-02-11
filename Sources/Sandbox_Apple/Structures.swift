@@ -88,6 +88,7 @@ func classDemo ()
 {
     print(Blocks.classInitString.rawValue);
     //White Chess figures
+    print("The chess deck");
     var kingWhite = Chessman(type: .king, color: .white, figure: "\u{2654}");
     var queenWhite = Chessman(type: .queen, color: .white, figure: "\u{2655}");
     var rookWhiteLeft = Chessman(type: .rook, color: .white, figure: "\u{2656}");
@@ -130,10 +131,70 @@ func classDemo ()
     knightWhiteRight.setCoordinates(char: "G", num: 1);
     bishopWhiteLeft.setCoordinates(char: "C", num: 1);
     bishopWhiteRight.setCoordinates(char: "F", num: 1);
+    //pawns section
+    pawnWhiteA.setCoordinates(char: "A", num: 2);
+    pawnWhiteB.setCoordinates(char: "B", num: 2);
+    pawnWhiteC.setCoordinates(char: "C", num: 2);
+    pawnWhiteD.setCoordinates(char: "D", num: 2);
+    pawnWhiteE.setCoordinates(char: "E", num: 2);
+    pawnBlackF.setCoordinates(char: "F", num: 2);
+    pawnBlackG.setCoordinates(char: "G", num: 2);
+    pawnBlackH.setCoordinates(char: "H", num: 2);
     //setting up coordinates of black figures
     queenBlack.setCoordinates(char: "D", num: 8);
+    kingBlack.setCoordinates(char: "E", num: 8);
+    rookBlackRight.setCoordinates(char: "H", num: 8);
+    rookBlackLeft.setCoordinates(char: "A", num: 8);
+    knightBlackLeft.setCoordinates(char: "B", num: 8);
+    knightBlackRight.setCoordinates(char: "G", num: 8);
+    bishopBlackLeft.setCoordinates(char: "C", num: 8);
+    bishopBlackRight.setCoordinates(char: "F", num: 8);
+    //pawns section
+    pawnWhiteA.setCoordinates(char: "A", num: 7);
+    pawnWhiteB.setCoordinates(char: "B", num: 7);
+    pawnWhiteC.setCoordinates(char: "C", num: 7);
+    pawnWhiteD.setCoordinates(char: "D", num: 7);
+    pawnWhiteE.setCoordinates(char: "E", num: 7);
+    pawnBlackF.setCoordinates(char: "F", num: 7);
+    pawnBlackG.setCoordinates(char: "G", num: 7);
+    pawnBlackH.setCoordinates(char: "H", num: 7);
 
-    print(kingWhite.figureSymbol, kingWhite.coordinates!);
-    print(queenBlack.figureSymbol, queenBlack.coordinates!);
+    print(  rookBlackLeft.figureSymbol,
+            knightBlackLeft.figureSymbol,
+            bishopBlackLeft.figureSymbol,
+            queenBlack.figureSymbol,
+            kingBlack.figureSymbol,
+            bishopBlackRight.figureSymbol,
+            knightBlackRight.figureSymbol,
+            rookBlackRight.figureSymbol);
+
+    print(  pawnBlackA.figureSymbol,
+            pawnBlackB.figureSymbol,
+            pawnBlackC.figureSymbol,
+            pawnBlackD.figureSymbol,
+            pawnBlackE.figureSymbol,
+            pawnBlackF.figureSymbol,
+            pawnBlackG.figureSymbol,
+            pawnBlackH.figureSymbol,
+            "\n");
+
+    print(  pawnWhiteA.figureSymbol,
+            pawnWhiteB.figureSymbol,
+            pawnWhiteC.figureSymbol,
+            pawnWhiteD.figureSymbol,
+            pawnWhiteE.figureSymbol,
+            pawnWhiteF.figureSymbol,
+            pawnWhiteG.figureSymbol,
+            pawnWhiteH.figureSymbol);
+
+    print(  rookWhiteLeft.figureSymbol,
+            knightWhiteLeft.figureSymbol,
+            bishopWhiteLeft.figureSymbol,
+            queenWhite.figureSymbol,
+            kingWhite.figureSymbol,
+            bishopWhiteRight.figureSymbol,
+            knightWhiteRight.figureSymbol,
+            rookWhiteRight.figureSymbol);
+
     print(Blocks.classEndingString.rawValue);
 }
