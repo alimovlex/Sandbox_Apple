@@ -2,6 +2,14 @@ import Foundation;
 import CoreFoundation;
 import CDispatch;
 
+extension Int //the extension of the integer type
+{
+    mutating func square()
+    {
+        self = self * self;
+    }
+}
+
 enum sandbox: String //raw value type
 {
     case start = "The dataStructDemo function initialization"; //raw value
@@ -47,6 +55,8 @@ func main()
     print("The 2 variables to swap")
     var a = Int.random(in: 0...100); //random value
     var b = Int.random(in: 0...100); //random value
+    a.square();
+    b.square();
     print("Before swap: a = \(a) b = \(b)");
     swap(&a, &b); //The C/C++ function way of calling a function
     print("After swap: a = \(a) b = \(b)");

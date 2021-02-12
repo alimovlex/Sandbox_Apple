@@ -49,6 +49,7 @@ class Chessman
     {
         self.coordinates = nil;
     }
+
 }
 
 struct PlayerInChess

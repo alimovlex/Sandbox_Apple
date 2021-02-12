@@ -5,11 +5,11 @@ import Foundation
 
 extension Int //the extension of the integer type
 {
-    var add: Int {return self + 10 }
-    var sub: Int { return self - 10 }
-    var mul: Int { return self * 10 }
-    var div: Int { return self / 10 }
-    var mod: Int { return self % 10}
+    var add: Int {return self + 10 } //closure
+    var sub: Int { return self - 10 } //closure
+    var mul: Int { return self * 10 } //closure
+    var div: Int { return self / 10 } //closure
+    var mod: Int { return self % 10} //closure
 }
 
 enum Days
@@ -20,7 +20,7 @@ enum Days
 class Weekdays
 {
     init() {
-        print("Constructing");
+        print("Constructing Weekdays");
     }
     var days: [String] = ["Monday", "Tuesday", "Wednesday", "Thursday",
                           "Friday", "Saturday", "Sunday"];
@@ -60,9 +60,14 @@ class Weekdays
 
 class Months: Weekdays
 {
+    override init() //overridden constructor
+    {
+        print("Constructing Months");
+    }
+
     var months: [String] = ["January", "February", "March", "April", "May", "June", "July",
                             "August", "September", "October", "November", "December"];
-    override var quantity: Int {
+    override var quantity: Int { //overridden variable quantity
         get {
             return super.quantity;
         }
