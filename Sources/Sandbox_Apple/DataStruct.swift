@@ -15,6 +15,7 @@ enum DataStruct: String //declaring associated type with enumeration (raw value 
     case setInitString = "---------------The set section--------------------------";
     case stringInitString = "---------------The string section--------------------------";
     case optionalsInitString = "---------------The optionals section--------------------------";
+    case anyInitString = "---------------The Any and Anyobject section--------------------------";
     //ending strings
     case dictionaryEndingString = "------The dictionary section ending--------------------------";
     case arrayEndingString = "------The array section ending--------------------------";
@@ -22,9 +23,10 @@ enum DataStruct: String //declaring associated type with enumeration (raw value 
     case setEndingString = "------The set section ending--------------------------";
     case stringEndingString = "------The string section ending--------------------------";
     case optionalsEndingString = "------The optionals section ending--------------------------";
+    case anyEndingString = "---------------The Any and Anyobject section ending--------------------------";
 }
 
-class Cortege
+class Corteges
 {
     //the cortege block definition
     let statusTuple = (statusCode:200, statusText:"In work", statusConnect:true);
@@ -227,7 +229,7 @@ class Optionals
 
 func cortegeDemo()
 {
-    var obj = Cortege();
+    var obj = Corteges();
     print(obj.demo(tuple1: (200, "Cortege", true), tuple2: (200, "Destroys", true)));
 }
 
@@ -277,4 +279,20 @@ func optionalsDemo()
 {
     var obj = Optionals();
     obj.demo(tuple:(404,"Page not found") );
+}
+
+func anyDemo()
+{
+    print(DataStruct.anyInitString.rawValue);
+    var things = [Any](); //declaring the variable of type any. Any type can be stored here
+    let someObjects: [AnyObject] = [Corteges(), Arrays(), Sets(), Dictionaries(), Strings(), Optionals()];
+    things.append(0); //Int
+    things.append(0.0); //Double
+    things.append(42);
+    things.append("Hello"); //String
+    things.append((3.0, 5.0)); //Tuple
+    things.append({(name: String) -> String in "Hello, \(name)"});
+    print("The variable of type Any contains: \(things)");
+    print("The variable of type AnyObject contains these objects: \(someObjects)");
+    print(DataStruct.anyEndingString.rawValue);
 }

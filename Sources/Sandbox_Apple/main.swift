@@ -20,6 +20,7 @@ enum sandbox: String //raw value type
         dictionaryDemo();
         stringDemo();
         optionalsDemo();
+        anyDemo();
         return 0;
     }
     case finish = "The dataStructDemo function finishing";
