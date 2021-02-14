@@ -4,7 +4,7 @@
 
 import Foundation
 import CoreFoundation;
-import CDispatch;
+//import CDispatch;
 
 enum DataStruct: String //declaring associated type with enumeration (raw value type)
 {
@@ -47,9 +47,33 @@ class Corteges
 class Arrays
 {
     //three ways of defining the arrays
-    var alphabetArray = ["c", "b", "a"]; //first method
+    var alphabetArray = ["c", "b", "a"] { //the property observer
+        //First this
+        willSet {
+            print("willSet Old value is \(alphabetArray), new value is \(newValue)");
+        }
+
+        //value is set
+
+        //Finaly this
+        didSet {
+            print("didSet Old value is \(oldValue), new value is \(alphabetArray)");
+        }
+    } //first method
     let newalphabetArray = Array(arrayLiteral: 2,4,8,1); //second method
-    var repeatArray = Array(repeating: "Swift", count: 5);
+    var repeatArray = Array(repeating: "Swift", count: 5) { //the property observer
+        //First this
+        willSet {
+            print("willSet Old value is \(repeatArray), new value is \(newValue)");
+        }
+
+        //value is set
+
+        //Finaly this
+        didSet {
+            print("didSet Old value is \(oldValue), new value is \(repeatArray)");
+        }
+    }
     let lineArray = Array(0...9); //third method
     var emptyArray: [String] = []; //first way
     var anotherEmptyArray = [String](); //second way
@@ -78,6 +102,7 @@ class Arrays
         }
         print("lineArray even numbers stepping 2 using closures: \(lineArray.filter{$0%2==0})");
         //the array methods and its outputs
+        print("-------------------------The property observers of repeatArray---------------------------");
         repeatArray.append("Swift"); //the second way of array appension
         repeatArray.insert("Swift", at: 6);
         repeatArray.removeLast();
@@ -85,6 +110,7 @@ class Arrays
         repeatArray.remove(at: 0);
         repeatArray.dropFirst();
         repeatArray.dropLast();
+        print("-------------------------The property observers of repeatArray ending---------------------------");
         print("The repeatArray methods description: \(repeatArray)");
         print("contains:\(repeatArray.count) elements");
         print("is empty:\(repeatArray.isEmpty)");
