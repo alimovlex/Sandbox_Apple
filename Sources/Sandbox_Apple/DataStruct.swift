@@ -6,7 +6,7 @@ import Foundation
 import CoreFoundation;
 //import CDispatch;
 
-enum DataStruct: String //declaring associated type with enumeration (raw value type)
+enum DataStruct: String //declaring associated type with enumeration (raw value type) | ALL values must be initialized
 {
     //initialization strings connected to the raw value of enumeration
     case dictionaryInitString = "---------------The dictionary section--------------------------";
@@ -26,7 +26,7 @@ enum DataStruct: String //declaring associated type with enumeration (raw value 
     case anyEndingString = "---------------The Any and Anyobject section ending--------------------------";
 }
 
-class Corteges
+class Corteges //ALL values must be initialized
 {
     //the cortege block definition
     let statusTuple = (statusCode:200, statusText:"In work", statusConnect:true);
@@ -44,7 +44,7 @@ class Corteges
 
 }
 
-class Arrays
+class Arrays//ALL values must be initialized
 {
     //three ways of defining the arrays
     var alphabetArray = ["c", "b", "a"] { //the property observer
@@ -116,8 +116,8 @@ class Arrays
         print("is empty:\(repeatArray.isEmpty)");
         print("containing Swift:\(repeatArray.contains("Swift"))");
         print("The digit methods in the immutableArray \(immutableArray)");
-        print("min = \(immutableArray.min()!)");
-        print("max = \(immutableArray.max()!)");
+        print("min = \(immutableArray.min()!) first = \(immutableArray.first!)");
+        print("max = \(immutableArray.max()!) last = \(immutableArray.last!)");
         for number in immutableArray // number is the associated variable which wasn't previously declared
         {
             result+=number;
@@ -133,7 +133,7 @@ class Arrays
     }
 }
 
-class Sets
+class Sets //ALL values must be initialized
 {
     //the set definition ways
     var dishes: Set<String> = ["Bread", "Vegetables", "Beef", "Water"];
@@ -172,7 +172,7 @@ class Sets
     }
 }
 
-class Dictionaries
+class Dictionaries //ALL values must be initialized
 {
 
     var emptyDictionary: [String:Int] = [:];
@@ -204,7 +204,7 @@ class Dictionaries
     }
 }
 
-class Strings
+class Strings //ALL values must be initialized
 {
 
     func demo(str:String)
@@ -226,7 +226,7 @@ class Strings
     }
 }
 
-class Optionals
+class Optionals //ALL values must be initialized
 {
     //multiple ways of defining optionals
     var optionalChar: Optional<Character> = "a"; //first method
@@ -273,7 +273,7 @@ func arrayDemo()
                 return immutableArray + lineArray;
             }
     print(obj.demo(matrix: matrix, immutableArray: immutableArray));
-    print("The array summation demo = \(arraySummDemo()), lineArrayMapped = \(lineArrayMapped)");
+    print("The array concatenation demo = \(arraySummDemo()), lineArrayMapped = \(lineArrayMapped)");
     print("The lazyArray: \(Array(lazyArray))");
 
 }

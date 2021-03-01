@@ -12,8 +12,42 @@ struct Range<T> { // The range declaration because the Range is the structure of
     var endIndex: T;
 }
 
+protocol Moveable { //The protocol declaration
+    mutating func moveTo(P:CGPoint); //the promise of implemented function in the class
+}
+
+class Car : Moveable { //inheriting the promise of implementation of mutating function from the protocol
+    func moveTo(P: CGPoint) {
+        
+    }
+    func changeOil() {
+        
+    }
+    
+}
+
+struct Shape : Moveable { //inheriting the promise of implementation of mutating function from the protocol
+    mutating func moveTo(P: CGPoint) {
+        
+    }
+    func draw() {
+        
+    }
+}
+
 func main()
 {
+    //protocols section
+    
+    let prius: Car = Car();
+    let square: Shape = Shape();
+    
+    var thingToMove: Moveable = prius;
+    thingToMove.moveTo(P: CGPoint.zero);
+    thingToMove = square;
+    
+    let thingsToMove: [Moveable] = [prius, square];
+    
     // three ways of optionals declaration
     //let x: String? = nil;
     //let x = Optional<String>.None;

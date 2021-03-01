@@ -4,7 +4,7 @@
 
 import Foundation
 
-enum Blocks: String
+enum Blocks: String //ALL values must be initialized
 {
     //initialization strings
     case structInitString = "---------------The structures section--------------------------";
@@ -14,7 +14,7 @@ enum Blocks: String
     case classEndingString = "---------------The class section ending--------------------------";
 }
 
-class Chessman
+class Chessman //ALL values must be initialized
 {
     enum ChessmanType
     {
@@ -34,7 +34,7 @@ class Chessman
     // figure symbol
     let figureSymbol: Character
     //initializer
-    init(type: ChessmanType, color: ChessmanColor, figure: Character)
+    init(type: ChessmanType, color: ChessmanColor, figure: Character)  //ALL values must be initialized
     {
     self.type = type;
         self.color = color;
