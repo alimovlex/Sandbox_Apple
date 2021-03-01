@@ -16,6 +16,14 @@ protocol Moveable { //The protocol declaration
     mutating func moveTo(P:CGPoint); //the promise of implemented function in the class
 }
 
+@objc protocol MyProtocol { //@objc defines the optional methods in the protocols
+    @objc optional func doSomething(); //the optional function in the protocol
+}
+
+class MyClass: NSObject, MyProtocol { //inheriting from the NSObject - the main Objective-C class
+    /* no compile error */
+}
+
 class Car : Moveable { //inheriting the promise of implementation of mutating function from the protocol
     func moveTo(P: CGPoint) {
         
