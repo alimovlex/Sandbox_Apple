@@ -65,7 +65,7 @@ struct PlayerInChess
     {
         print("The player \(self.name) has \(self.wins) victories");
     }
-    mutating func win( count: UInt = 1) //changeable method for wins property
+    mutating func win( count: UInt = 1) //The method which accepts the value via reference and changes it.
     {
         self.wins += count;
     }
