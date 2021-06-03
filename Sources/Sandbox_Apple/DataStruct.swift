@@ -229,21 +229,50 @@ class Strings //ALL values must be initialized
 class Optionals //ALL values must be initialized
 {
     //multiple ways of defining optionals
-    var optionalChar: Optional<Character> = "a"; //first method
-    var xCoordinate: Int? = 12, yCoordinate: Int = 12; //the second method
-    var optionalVar = Optional ("Hello "), str:String = "World!"; //the third method
+    var optionalChar: String?; //first method
+    private var _xCoordinate: Int!, _yCoordinate: Int!; //the second method
+    var optionalVar = Optional<String>("Hello "), str:String = "World!"; //the third method
     //xCoordinate+yCoordinate = error; optionals aren't calculated between basic types!!!
     //optionalVar+str = error; optionals aren't calculated between basic types!!!
     //var terminator: Int?, suicide: Int! = ERROR;NEVER DECLARE EMPTY OPTIONALS = RUNTIME CRASH
+
+    var xCoordinate: Int { //computed property using closures
+        if _xCoordinate == nil {
+            _xCoordinate = 12;
+        }
+        return _xCoordinate;
+    }
+
+    var yCoordinate: Int { //computed property using closures
+        if _yCoordinate == nil {
+            _yCoordinate = 12;
+        }
+        return _yCoordinate;
+    }
+
+    func setPosition(newCoordinateX: Int, newCoordinateY: Int) { //a method which handles the computed properties
+        self._xCoordinate = newCoordinateX;
+        self._yCoordinate = newCoordinateY;
+    }
+
+
     func demo(tuple: (code: Int, message: String)?)
     {
         print(DataStruct.optionalsInitString.rawValue);
-        var distance = xCoordinate! + yCoordinate; //force unwrapping of the optional variable
-        var testString = optionalVar! + str; //force unwrapping of the optional variable
+        if var distance = _xCoordinate {
+            distance += _yCoordinate;
+            print("The distance is: \(distance)"); 
+        }
+
+        if var testString = optionalVar {
+          testString += str;
+            print("\(testString)");
+        }
+
         if xCoordinate != nil && optionalVar != nil //Optionals comparison
         {
-            print("Output of the calculation of unwrapped optionals and basic variables:");
-            print("The distance is: \(distance) | \(testString)");
+            print("The optionals has been operated successfully");
+
         }
         if let string = optionalVar
         {
@@ -305,6 +334,26 @@ func optionalsDemo()
 {
     var obj = Optionals();
     obj.demo(tuple:(404,"Page not found") );
+    var objectOptionalString: Optionals?; // decraring optional object
+    var objects: [Optionals]?; // declaring an array of optional objects
+    var person = Optionals();
+    person.setPosition(newCoordinateX: 10, newCoordinateY: 10); //using the method to setup computed properties in the class
+    objects = [Optionals](); //initializing the array of optional objects
+    //print(object!.optionalChar); guaranteed crash because of the forcing unwrapping of nil optional
+    //print(object?.optionalChar); printing the nil from the optional
+    objectOptionalString = Optionals(); // initializing the variable and the object
+    objectOptionalString?.optionalChar = "I am the optional property of type string"; //assigning the optional property 
+    print("The coordinates of a person is : (\(person.xCoordinate),\(person.yCoordinate))");
+    if let v = objectOptionalString, let m = v.optionalChar {
+        print("Printing the optional property: \(m)");
+    }
+
+    if let objArr = objects, objArr.count > 0 {
+        //only execute if not nil and if more than 0 elements
+    } else {
+        objects?.append(Optionals());
+        print(objects?.count);
+    }
 }
 
 func anyDemo()

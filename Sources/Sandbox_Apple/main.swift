@@ -6,7 +6,7 @@ extension Int //the extension of the integer type
 {
     mutating func square()
     {
-        self = self * self;
+        self = self * self; //The method which accepts the value via reference and changes it.
     }
 }
 
@@ -44,7 +44,7 @@ func choice(function: ()) -> Int //declaring the function type as a parameter in
     return 0;
 }
 
-func swap(_ a:inout Int, _ b:inout Int)
+func swap(_ a:inout Int, _ b:inout Int) //The function which accepts parameters via reference.
 {
     let tmp = a;
     a = b;
@@ -79,7 +79,6 @@ func main()
     print("-------------------\(objects.start.rawValue)----------------------------");
     assert(objects.start.objectsDemo()==0, "The program has finished flawlessly!"); //function assertion
     print("-------------------\(objects.finish.rawValue)----------------------------");
-
 }
 
 main();

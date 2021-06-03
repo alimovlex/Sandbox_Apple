@@ -50,9 +50,9 @@ func main()
     let prius: Car = Car();
     let square: Shape = Shape();
     
-    var thingToMove: Moveable = prius;
-    thingToMove.moveTo(P: CGPoint.zero);
-    thingToMove = square;
+    var thingToMove: Moveable = prius; //the variable of the Moveable protocol type
+    thingToMove.moveTo(P: CGPoint.zero); //available because conforms to the protocol type and declared functions
+    thingToMove = square; //available because both objects use similar protocol
     
     let thingsToMove: [Moveable] = [prius, square];
     
@@ -75,7 +75,6 @@ func main()
     {
         print("\(key) = \(value)");
     }
-    
 }
 
 main();
