@@ -53,12 +53,6 @@ func swap(_ a:inout Int, _ b:inout Int) //The function which accepts parameters 
 
 func main()
 {
-    let list = SwiftListWrapper(dataSize: 1)
-    list.push_back(value: "1".data(using: .utf8)!)
-    list.push_back(value: "2".data(using: .utf8)!)
-    list.push_back(value: "3".data(using: .utf8)!)
-    list.push_front(value: "0".data(using: .utf8)!)
-    print("The size of C++ List \(list.size())");
     print("The 2 variables to swap")
     var a = Int.random(in: 0...100); //random value
     var b = Int.random(in: 0...100); //random value
@@ -81,8 +75,8 @@ func main()
     print("-------------------\(objects.finish.rawValue)----------------------------");
 }
 
-main();
+//main();
 
-
+cppListTest();
 
 
