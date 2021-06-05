@@ -1,6 +1,6 @@
 /*
-    ListTest.cpp
-    The module represents my demo functions regarding list data structures and its methods.
+    VectorTest.cpp
+    The module represents my demo functions regarding vector data structures and its methods.
 
     Sandbox
 

@@ -1,13 +1,13 @@
 //
-//  VectorTest.hpp
-//  VectorTest
+//  ForwardListTest.hpp
+//  ForwardListTest
 //
 //  Created by alimovlex
 //  Copyright © 2020 alimovlex. All rights reserved.
 //
 
-#ifndef VectorTest_hpp
-#define VectorTest_hpp
+#ifndef ForwardListTest_hpp
+#define ForwardListTest_hpp
 
 #include <ctime>
 #include <cmath>
@@ -37,41 +37,36 @@
 #include <valarray>
 using namespace std;
 
-class VectorIterator {
+class ForwardListIterator {
 public:
-    VectorIterator(vector<void*>::const_iterator i, vector<void*> *vector);
-    ~VectorIterator();
+    ForwardListIterator(forward_list<void*>::const_iterator i, forward_list<void*> *forwardList);
+    ~ForwardListIterator();
 
     void* value();              // – Returns current value
     bool increment();           // – Increment iterator - return false if over end and do not increment
-    bool decrement();           // – Decrement iterator - return false if before begin and do not increment
 
 private:
-    vector<void*>::const_iterator iterator;
-    vector<void*> *vectorP;
+    forward_list<void*>::const_iterator iterator;
+    forward_list<void*> *forwardListP;
 };
 
 
-class VectorWrapper {
+class ForwardListWrapper {
 public:
-    VectorWrapper();
-    ~VectorWrapper();
+    ForwardListWrapper();
+    ~ForwardListWrapper();
 
     void* front();              // – Returns reference to the first element in the list
-    void* back();               // – Returns reference to the last element in the list
-    void push_back(const void* g);    // – Adds a new element ‘g’ at the end of the list
-    void pop_back();            // – Removes the last element of the list, and reduces size of the list by 1
-    VectorIterator* begin();   // – Returns an iterator pointing to the first element of the list
-    VectorIterator* end();     // – Returns an iterator pointing to the theoretical last element which follows the last element
+    ForwardListIterator* begin();   // – Returns an iterator pointing to the first element of the list
+    ForwardListIterator* end();     // – Returns an iterator pointing to the theoretical last element which follows the last element
     bool empty();               // – Returns whether the list is empty(1) or not(0)
 //    void insert(iterator, void* g) – Insert a new element in the list before the element at a specified position
 //    void erase(iterator) – Remove a single element from the list
-    long size();                 // – Returns the number of elements in the list
 
 private:
-    vector<void*> stdVector;
+    forward_list<void*> stdForwardList;
 };
 
 
-#endif /* VectorTest_hpp */
+#endif /* ForwardListTest_hpp */
 

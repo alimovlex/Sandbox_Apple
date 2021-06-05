@@ -6,8 +6,8 @@
 //  Copyright © 2020 alimovlex. All rights reserved.
 //
 
-#ifndef STLTest_hpp
-#define STLTest_hpp
+#ifndef VectorTest_hpp
+#define VectorTest_hpp
 
 #include <ctime>
 #include <cmath>
@@ -75,5 +75,5 @@ private:
 };
 
 
-#endif /* ListTest_hpp */
+#endif /* VectorTest_hpp */
 
