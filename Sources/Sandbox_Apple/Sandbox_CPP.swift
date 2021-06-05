@@ -23,6 +23,9 @@ func cppListTest () {
     deque.push_back(value: "3".data(using: .utf8)!);
     print("The size of C++ Deque \(deque.size())");
 
+    let map = SwiftMapWrapper(dataSize: 1);
+    print("The size of C++ Map \(map.size())");
+
     let forward_list = SwiftForwardListWrapper(dataSize: 1);
     print("The C++ ForwardList is empty? The answer is :\(forward_list.empty())");
 
