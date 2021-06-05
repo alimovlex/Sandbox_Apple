@@ -26,5 +26,8 @@ func cppListTest () {
     let forward_list = SwiftForwardListWrapper(dataSize: 1);
     print("The C++ ForwardList is empty? The answer is :\(forward_list.empty())");
 
+    let set = SwiftSetWrapper(dataSize: 1);
+    print("The C++ Set is empty? The answer is :\(set.empty())");
+
 }
 
