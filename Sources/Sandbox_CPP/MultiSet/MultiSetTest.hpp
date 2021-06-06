@@ -1,13 +1,13 @@
 //
-//  MapTest.hpp
-//  MapTest
+//  MultiSetTest.hpp
+//  MultiSetTest
 //
 //  Created by alimovlex
 //  Copyright © 2020 alimovlex. All rights reserved.
 //
 
-#ifndef MapTest_hpp
-#define MapTest_hpp
+#ifndef MultiSetTest_hpp
+#define MultiSetTest_hpp
 
 #include <ctime>
 #include <cmath>
@@ -37,35 +37,37 @@
 #include <valarray>
 using namespace std;
 
-class MapIterator {
+class MultiSetIterator {
 public:
-    MapIterator(map<void*, void*>::const_iterator i, map<void*, void*> *map);
-    ~MapIterator();
+    MultiSetIterator(multiset<void*>::const_iterator i, multiset<void*> *multiset);
+    ~MultiSetIterator();
+
+    void* value();              // – Returns current value
     bool increment();           // – Increment iterator - return false if over end and do not increment
     bool decrement();           // – Decrement iterator - return false if before begin and do not increment
 
 private:
-    map<void*, void*>::const_iterator iterator;
-    map<void*, void*> *mapP;
+    multiset<void*>::const_iterator iterator;
+    multiset<void*> *multisetP;
 };
 
 
-class MapWrapper {
+class MultiSetWrapper {
 public:
-    MapWrapper();
-    ~MapWrapper();
+    MultiSetWrapper();
+    ~MultiSetWrapper();
 
-    MapIterator* begin();   // – Returns an iterator pointing to the first element of the list
-    MapIterator* end();     // – Returns an iterator pointing to the theoretical last element which follows the last element
+    MultiSetIterator* begin();   // – Returns an iterator pointing to the first element of the list
+    MultiSetIterator* end();     // – Returns an iterator pointing to the theoretical last element which follows the last element
     bool empty();               // – Returns whether the list is empty(1) or not(0)
 //    void insert(iterator, void* g) – Insert a new element in the list before the element at a specified position
 //    void erase(iterator) – Remove a single element from the list
     long size();                 // – Returns the number of elements in the list
 
 private:
-    map<void*, void*> stdMap;
+    multiset<void*> stdMultiset;
 };
 
 
-#endif /* MapTest_hpp */
+#endif /* MultiSetTest_hpp */
 

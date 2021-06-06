@@ -32,5 +32,8 @@ func cppListTest () {
     let set = SwiftSetWrapper(dataSize: 1);
     print("The C++ Set is empty? The answer is :\(set.empty())");
 
+    let multiset = SwiftMultiSetWrapper(dataSize: 1);
+    print("The C++ MultiSet is empty? The answer is :\(multiset.empty())");
+
 }
 

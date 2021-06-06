@@ -47,13 +47,13 @@ open class SwiftForwardListWrapper {
     }
 
     // – Returns an iterator pointing to the first element of the list
-    func begin() -> SwiftListIterator {
-        return SwiftListIterator(cppObject: Sandbox_CPP.forwardList_begin(cppObject), dataSize: dataSize)
+    func begin() -> SwiftForwardListIterator {
+        return SwiftForwardListIterator(cppObject: Sandbox_CPP.forwardList_begin(cppObject), dataSize: dataSize)
     }
 
     // – Returns an iterator pointing to the theoretical last element which follows the last element
-    func end() -> SwiftListIterator {
-        return SwiftListIterator(cppObject: Sandbox_CPP.forwardList_end(cppObject), dataSize: dataSize)
+    func end() -> SwiftForwardListIterator {
+        return SwiftForwardListIterator(cppObject: Sandbox_CPP.forwardList_end(cppObject), dataSize: dataSize)
     }
 
     // – Returns whether the list is empty(1) or not(0)
