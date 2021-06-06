@@ -26,6 +26,9 @@ func cppListTest () {
     let map = SwiftMapWrapper(dataSize: 1);
     print("The size of C++ Map \(map.size())");
 
+    let multimap = SwiftMultiMapWrapper(dataSize: 1);
+    print("The size of C++ MultiMap \(multimap.size())");
+
     let forward_list = SwiftForwardListWrapper(dataSize: 1);
     print("The C++ ForwardList is empty? The answer is :\(forward_list.empty())");
 
@@ -34,6 +37,7 @@ func cppListTest () {
 
     let multiset = SwiftMultiSetWrapper(dataSize: 1);
     print("The C++ MultiSet is empty? The answer is :\(multiset.empty())");
+
 
 }
 

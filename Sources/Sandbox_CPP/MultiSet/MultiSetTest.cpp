@@ -1,6 +1,6 @@
 /*
     MultiSetTest.cpp
-    The module represents my demo functions regarding vector data structures and its methods.
+    The module represents my demo functions regarding multiset data structures and its methods.
 
     Sandbox
 
