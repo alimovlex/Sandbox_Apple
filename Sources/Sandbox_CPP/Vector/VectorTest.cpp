@@ -34,6 +34,18 @@ void VectorWrapper::pop_back() {
     stdVector.pop_back();
 }
 
+void VectorWrapper::emplace_back(const void *g) {
+    return(stdVector.emplace_back((void*)g));
+}
+
+void VectorWrapper::clear() {
+    return stdVector.clear();
+}
+
+void* VectorWrapper::data() {
+    return stdVector.data();
+}
+
 //    begin() – Returns an iterator pointing to the first element of the list
 //    end() – Returns an iterator pointing to the theoretical last element which follows the last element
 
@@ -50,19 +62,35 @@ long VectorWrapper::size() {
     return stdVector.size();
 }
 
+long VectorWrapper::max_size() {
+    return stdVector.max_size();
+}
+
+long VectorWrapper::capacity() {
+    return stdVector.capacity();
+}
+
 VectorIterator* VectorWrapper::begin() {
     return new VectorIterator(stdVector.begin(), &stdVector);
 }
 
+VectorIterator* VectorWrapper::cbegin() {
+    return new VectorIterator(stdVector.cbegin(), &stdVector);
+}
+
+
 VectorIterator* VectorWrapper::end() {
     return new VectorIterator(stdVector.end(), &stdVector);
+}
+
+VectorIterator* VectorWrapper::cend() {
+    return new VectorIterator(stdVector.cend(), &stdVector);
 }
 
 VectorIterator::VectorIterator(vector<void*>::const_iterator i, vector<void*> *vector) {
     iterator = i;
     vectorP = vector;
 }
-
 
 VectorIterator::~VectorIterator() {
 
@@ -86,3 +114,6 @@ bool VectorIterator::decrement() {
     iterator--;
     return (iterator != vectorP->begin());
 }
+
+
+

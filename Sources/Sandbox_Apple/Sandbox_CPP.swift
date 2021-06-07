@@ -14,8 +14,13 @@ func cppListTest () {
     let vector = SwiftVectorWrapper(dataSize: 1);
     vector.push_back(value: "1".data(using: .utf8)!);
     vector.push_back(value: "2".data(using: .utf8)!);
-    vector.push_back(value: "3".data(using: .utf8)!);
+    vector.emplace_back(value: "3".data(using: .utf8)!);
+    vector.pop_back();
     print("The size of C++ Vector \(vector.size())");
+    print("The capacity of C++ Vector \(vector.capacity())");
+    vector.clear();
+    print("The size of C++ Vector after clean up \(vector.size())");
+    print("The max_size of C++ Vector \(vector.max_size())");
 
     let deque = SwiftDequeWrapper(dataSize: 1);
     deque.push_back(value: "1".data(using: .utf8)!);
@@ -37,7 +42,6 @@ func cppListTest () {
 
     let multiset = SwiftMultiSetWrapper(dataSize: 1);
     print("The C++ MultiSet is empty? The answer is :\(multiset.empty())");
-
 
 }
 

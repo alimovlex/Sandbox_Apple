@@ -50,9 +50,38 @@ open class SwiftVectorWrapper {
         return nil
     }
 
+    // – Returns reference to the first element in the list
+    func cbegin() -> Data? {
+        if let p:UnsafeMutableRawPointer = UnsafeMutableRawPointer(mutating: Sandbox_CPP.vector_cbegin(cppObject)) {
+            let data = Data(bytes: p, count: dataSize)
+            return data
+        }
+
+        return nil
+    }
+
+    // – Returns reference to the last element in the list
+    func cend() -> Data? {
+        if let p:UnsafeMutableRawPointer = UnsafeMutableRawPointer(mutating: Sandbox_CPP.vector_cend(cppObject)) {
+            let data = Data(bytes: p, count: dataSize)
+            return data
+        }
+
+        return nil
+    }
+
     // – Returns reference to the last element in the list
     func back() -> Data? {
         if let p:UnsafeMutableRawPointer = UnsafeMutableRawPointer(mutating: Sandbox_CPP.vector_back(cppObject)) {
+            let data = Data(bytes: p, count: dataSize)
+            return data
+        }
+
+        return nil
+    }
+
+    func data() -> Data? {
+        if let p:UnsafeMutableRawPointer = UnsafeMutableRawPointer(mutating: Sandbox_CPP.vector_data(cppObject)) {
             let data = Data(bytes: p, count: dataSize)
             return data
         }
@@ -64,6 +93,13 @@ open class SwiftVectorWrapper {
     func push_back(value: Data) {
         value.withUnsafeBytes {
             Sandbox_CPP.vector_push_back(cppObject, $0)
+        }
+    }
+
+    // – Adds a new element ‘value’ at the end of the list
+    func emplace_back(value: Data) {
+        value.withUnsafeBytes {
+            Sandbox_CPP.vector_emplace_back(cppObject, $0)
         }
     }
 
@@ -87,8 +123,24 @@ open class SwiftVectorWrapper {
         return Sandbox_CPP.vector_empty(cppObject)
     }
 
+// – Returns the number of elements in the list
+    func clear() {
+        return Sandbox_CPP.vector_clear(cppObject)
+    }
+
     // – Returns the number of elements in the list
     func size() -> Int {
         return Sandbox_CPP.vector_size(cppObject)
     }
+
+    // – Returns the number of elements in the list
+    func max_size() -> Int {
+        return Sandbox_CPP.vector_max_size(cppObject)
+    }
+
+    // – Returns the number of elements in the list
+    func capacity() -> Int {
+        return Sandbox_CPP.vector_capacity(cppObject)
+    }
+
 }
