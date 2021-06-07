@@ -50,26 +50,6 @@ open class SwiftVectorWrapper {
         return nil
     }
 
-    // – Returns reference to the first element in the list
-    func cbegin() -> Data? {
-        if let p:UnsafeMutableRawPointer = UnsafeMutableRawPointer(mutating: Sandbox_CPP.vector_cbegin(cppObject)) {
-            let data = Data(bytes: p, count: dataSize)
-            return data
-        }
-
-        return nil
-    }
-
-    // – Returns reference to the last element in the list
-    func cend() -> Data? {
-        if let p:UnsafeMutableRawPointer = UnsafeMutableRawPointer(mutating: Sandbox_CPP.vector_cend(cppObject)) {
-            let data = Data(bytes: p, count: dataSize)
-            return data
-        }
-
-        return nil
-    }
-
     // – Returns reference to the last element in the list
     func back() -> Data? {
         if let p:UnsafeMutableRawPointer = UnsafeMutableRawPointer(mutating: Sandbox_CPP.vector_back(cppObject)) {
@@ -113,9 +93,19 @@ open class SwiftVectorWrapper {
         return SwiftVectorIterator(cppObject: Sandbox_CPP.vector_begin(cppObject), dataSize: dataSize)
     }
 
+    // – Returns an iterator pointing to the first element of the list
+    func cbegin() -> SwiftVectorIterator {
+        return SwiftVectorIterator(cppObject: Sandbox_CPP.vector_cbegin(cppObject), dataSize: dataSize)
+    }
+
     // – Returns an iterator pointing to the theoretical last element which follows the last element
     func end() -> SwiftVectorIterator {
         return SwiftVectorIterator(cppObject: Sandbox_CPP.vector_end(cppObject), dataSize: dataSize)
+    }
+
+    // – Returns an iterator pointing to the theoretical last element which follows the last element
+    func cend() -> SwiftVectorIterator {
+        return SwiftVectorIterator(cppObject: Sandbox_CPP.vector_cend(cppObject), dataSize: dataSize)
     }
 
     // – Returns whether the list is empty(1) or not(0)

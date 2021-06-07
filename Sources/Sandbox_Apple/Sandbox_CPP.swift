@@ -16,6 +16,9 @@ func cppListTest () {
     vector.push_back(value: "2".data(using: .utf8)!);
     vector.emplace_back(value: "3".data(using: .utf8)!);
     vector.pop_back();
+    vector.push_back(value: vector.data()!);
+    vector.begin();
+    vector.cbegin();
     print("The size of C++ Vector \(vector.size())");
     print("The capacity of C++ Vector \(vector.capacity())");
     vector.clear();

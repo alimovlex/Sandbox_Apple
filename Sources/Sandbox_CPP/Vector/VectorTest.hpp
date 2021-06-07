@@ -40,6 +40,7 @@ using namespace std;
 class VectorIterator {
 public:
     VectorIterator(vector<void*>::const_iterator i, vector<void*> *vector);
+    VectorIterator(vector<void*>::reverse_iterator i, vector<void*> *vector);
     ~VectorIterator();
 
     void* value();              // – Returns current value
@@ -48,6 +49,7 @@ public:
 
 private:
     vector<void*>::const_iterator iterator;
+    vector<void*>::reverse_iterator riterator;
     vector<void*> *vectorP;
 };
 
