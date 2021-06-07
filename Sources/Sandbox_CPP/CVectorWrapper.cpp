@@ -82,6 +82,16 @@ void* vector_cend(const void *object) {
     return (void*) vector->cend();
 }
 
+void* vector_rbegin(const void *object) {
+    VectorWrapper *vector = (VectorWrapper *)object;
+    return (void*) vector->rbegin();
+}
+
+void* vector_rend(const void *object) {
+    VectorWrapper *vector = (VectorWrapper *)object;
+    return (void*) vector->rend();
+}
+
 void* vector_data(const void *object) {
     VectorWrapper *vector = (VectorWrapper *)object;
     return vector->data();

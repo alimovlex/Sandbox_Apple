@@ -78,6 +78,9 @@ VectorIterator* VectorWrapper::cbegin() {
     return new VectorIterator(stdVector.cbegin(), &stdVector);
 }
 
+VectorIterator* VectorWrapper::rbegin() {
+    return new VectorIterator(stdVector.rbegin(), &stdVector);
+}
 
 VectorIterator* VectorWrapper::end() {
     return new VectorIterator(stdVector.end(), &stdVector);
@@ -87,8 +90,17 @@ VectorIterator* VectorWrapper::cend() {
     return new VectorIterator(stdVector.cend(), &stdVector);
 }
 
+VectorIterator* VectorWrapper::rend() {
+    return new VectorIterator(stdVector.rend(), &stdVector);
+}
+
 VectorIterator::VectorIterator(vector<void*>::const_iterator i, vector<void*> *vector) {
     iterator = i;
+    vectorP = vector;
+}
+
+VectorIterator::VectorIterator(vector<void*>::reverse_iterator i, vector<void*> *vector) {
+    riterator = i;
     vectorP = vector;
 }
 

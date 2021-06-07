@@ -16,13 +16,19 @@ func cppListTest () {
     vector.push_back(value: "2".data(using: .utf8)!);
     vector.emplace_back(value: "3".data(using: .utf8)!);
     vector.pop_back();
-    vector.push_back(value: vector.data()!);
-    vector.begin();
-    vector.cbegin();
+    vector.push_back(value: vector.back()!);
+    vector.emplace_back(value: vector.front()!);
+    //vector.begin();
+    //vector.end();
+    //vector.cbegin();
+    //vector.cend();
+    //vector.rbegin();
+    //vector.rend();
     print("The size of C++ Vector \(vector.size())");
     print("The capacity of C++ Vector \(vector.capacity())");
     vector.clear();
     print("The size of C++ Vector after clean up \(vector.size())");
+    print("The C++ Vector is empty? The answer is :\(vector.empty())");
     print("The max_size of C++ Vector \(vector.max_size())");
 
     let deque = SwiftDequeWrapper(dataSize: 1);

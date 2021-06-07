@@ -22,6 +22,8 @@ extern "C" {
     void vector_emplace_back(const void *object, const void* g);
     void* vector_cbegin(const void *object);
     void* vector_cend(const void *object);
+    void* vector_rbegin(const void *object);
+    void* vector_rend(const void *object);
     void* vector_data(const void *object);
 
 

@@ -71,8 +71,8 @@ public:
     //void* at(VectorIterator);
     VectorIterator* begin();   // – Returns an iterator pointing to the first element of the list
     VectorIterator* end();     // – Returns an iterator pointing to the theoretical last element which follows the last element
-    //VectorIterator* rbegin();
-    //VectorIterator* rend();
+    VectorIterator* rbegin();
+    VectorIterator* rend();
     VectorIterator* cbegin();
     VectorIterator* cend();
     //VectorIterator* crbegin();

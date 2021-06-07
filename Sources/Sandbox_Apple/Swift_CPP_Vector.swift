@@ -108,6 +108,16 @@ open class SwiftVectorWrapper {
         return SwiftVectorIterator(cppObject: Sandbox_CPP.vector_cend(cppObject), dataSize: dataSize)
     }
 
+    // – Returns an iterator pointing to the theoretical last element which follows the last element
+    func rend() -> SwiftVectorIterator {
+        return SwiftVectorIterator(cppObject: Sandbox_CPP.vector_rend(cppObject), dataSize: dataSize)
+    }
+
+    // – Returns an iterator pointing to the theoretical last element which follows the last element
+    func rbegin() -> SwiftVectorIterator {
+        return SwiftVectorIterator(cppObject: Sandbox_CPP.vector_rbegin(cppObject), dataSize: dataSize)
+    }
+
     // – Returns whether the list is empty(1) or not(0)
     func empty() -> Bool {
         return Sandbox_CPP.vector_empty(cppObject)
