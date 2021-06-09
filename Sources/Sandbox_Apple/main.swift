@@ -76,7 +76,6 @@ func main()
 }
 
 //main();
-
-cppListTest();
-
+//cppListTest();
+cppTutorial();
 
