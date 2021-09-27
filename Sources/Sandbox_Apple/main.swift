@@ -1,6 +1,7 @@
 import Foundation;
 import CoreFoundation;
-//import CDispatch;
+import Dispatch
+import Kitura
 
 extension Int //the extension of the integer type
 {
@@ -53,7 +54,10 @@ func swap(_ a:inout Int, _ b:inout Int) //The function which accepts parameters 
 
 func main()
 {
-    print("The 2 variables to swap")
+    DispatchQueue.global().async {
+
+    }
+    print("The 2 variables to swap");
     var a = Int.random(in: 0...100); //random value
     var b = Int.random(in: 0...100); //random value
     a.square();
@@ -73,9 +77,10 @@ func main()
     print("-------------------\(objects.start.rawValue)----------------------------");
     assert(objects.start.objectsDemo()==0, "The program has finished flawlessly!"); //function assertion
     print("-------------------\(objects.finish.rawValue)----------------------------");
+
 }
 
-//main();
-//cppListTest();
+main();
+cppListTest();
 cppTutorial();
 
