@@ -13,7 +13,10 @@ let package = Package(
         ],
     dependencies: [
         //.package(url: "https://github.com/belozierov/SwiftCoroutine", .upToNextMajor(from: "2.1.11"))
-        .package(url: "https://github.com/Kitura/Kitura", from: "2.9.200")
+        .package(url: "https://github.com/Kitura/Kitura", from: "2.9.200"),
+        .package(url: "https://github.com/Kitura/Kitura-WebSocket.git", from: "2.1.2")
+
+        //
 
 // Dependencies declare other packages that this package depends on.
         // .package(url: /* package url */, from: "1.0.0"),
@@ -27,7 +30,7 @@ let package = Package(
         ),
         .target(
             name: "Sandbox_Apple",
-            dependencies: ["Sandbox_CPP", "Kitura"]),
+            dependencies: ["Sandbox_CPP", "Kitura", "Kitura-WebSocket"]),
         .testTarget(
             name: "Sandbox_AppleTests",
             dependencies: ["Sandbox_Apple"]),

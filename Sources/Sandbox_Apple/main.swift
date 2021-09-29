@@ -1,7 +1,9 @@
 import Foundation;
 import CoreFoundation;
 import Dispatch
+import Logging
 import Kitura
+import KituraWebSocket
 
 extension Int //the extension of the integer type
 {
@@ -54,10 +56,11 @@ func swap(_ a:inout Int, _ b:inout Int) //The function which accepts parameters 
 
 func main()
 {
+    let logger = Logger(label: "com.example.BestExampleApp.main");
     DispatchQueue.global().async {
 
     }
-    print("The 2 variables to swap");
+    logger.info("The 2 variables to swap");
     var a = Int.random(in: 0...100); //random value
     var b = Int.random(in: 0...100); //random value
     a.square();
