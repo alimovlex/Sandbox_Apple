@@ -84,6 +84,4 @@ func main()
 }
 
 main();
-cppListTest();
-cppTutorial();
 
