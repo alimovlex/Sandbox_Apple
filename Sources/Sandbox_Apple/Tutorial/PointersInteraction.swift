@@ -121,7 +121,32 @@ do {
   for (index, value) in bufferPointer.enumerated() {
     print("value \(index) -> \(value)")
   }
+
 }
 
+}
+
+func simplePointerExample() {
+    let ptr = UnsafeMutablePointer<Int>.allocate(capacity: 1); // int *ptr;
+    ptr.initialize(to: 42); // *ptr = 42;
+    print("ptr = \(ptr.pointee)"); // 42 
+    ptr.deallocate();
+
+    var x: Int = 20
+    var xPointer: UnsafeMutablePointer<Int> = .init(&x)
+
+    print("x address:", UnsafeRawPointer(&x));
+    print("x value:", x);
+    print("pointer address:", UnsafeRawPointer(&xPointer));
+    print("pointer reference:", xPointer);
+    print("pointer reference value:", xPointer.pointee);
+
+    xPointer.pointee = 420;
+    print("x value:", x);
+    print("pointer reference value:", xPointer.pointee);
+
+    x = 69;
+    print("x value:", x);
+    print("pointer reference value:", xPointer.pointee);
 
 }

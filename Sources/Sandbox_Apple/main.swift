@@ -80,6 +80,7 @@ func main()
     structMemorySizes();
     classMemorySizes();
     rawPointersInteraction();
+    simplePointerExample();
 
 }
 
