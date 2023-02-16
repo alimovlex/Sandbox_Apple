@@ -1,0 +1,9 @@
+{
+    "lldb.launch.initCommands": [
+        "command source ${env:HOME}/.lldbinit"
+    ],
+    "lldb.adapterEnv": {
+	"LLDB_DEBUGSERVER_PATH": "/usr/bin/lldb-server-11",
+	"PYTHONPATH":"/usr/lib/llvm-15/lib/python3/dist-packages"
+    },
+}

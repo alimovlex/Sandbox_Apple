@@ -1,0 +1,23 @@
+{
+    "configurations": [
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug Sandbox_Apple",
+            "program": "${workspaceFolder:Sandbox_Apple}/.build/debug/Sandbox_Apple",
+            "args": [],
+            "cwd": "${workspaceFolder:Sandbox_Apple}",
+            "preLaunchTask": "swift: Build Debug Sandbox_Apple"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "lldb.launch.initCommands": ["command source ${env:HOME}/.lldbinit"],
+            "name": "Release Sandbox_Apple",
+            "program": "${workspaceFolder:Sandbox_Apple}/.build/release/Sandbox_Apple",
+            "args": [],
+            "cwd": "${workspaceFolder:Sandbox_Apple}",
+            "preLaunchTask": "swift: Build Release Sandbox_Apple"
+        }
+    ]
+}
